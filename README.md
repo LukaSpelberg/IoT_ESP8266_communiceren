@@ -12,8 +12,9 @@ For this guide you will need
   - [Arduino IDE](https://www.arduino.cc/en/software)
 
 ## Step 1 - Set-up 
-We will first set up the receiver board. This board will receive the signals that the other ESP8266 board sends. For this board we only need to attach a LEDstrip. Attaching the strip should be easy. Attach the yellow cable to D1, the red one to 3V and the black one on G.
+We will first set up the receiver board. This board will receive the signals that the other ESP8266 board sends. For this board we only need to attach a LEDstrip.
 <img width="500" alt="image" src="https://github.com/user-attachments/assets/a0731280-52d7-42e3-a33f-9091c6f67985" />
+Attaching the strip should be easy. Attach the yellow cable to D1, the red one to 3V and the black one on G.
 
 For the second board we just need to attach the button module. 
 The button module has 3 pins, the left one says "VCC" The middle one "OUT" and the right one "GND". Attach the VCC pin to 3V. 
