@@ -71,23 +71,31 @@ void loop() {
   // grab the current state of the button.
   // we have to flip the logic because we are
   // using a pullup resistor.
-  if(digitalRead(BUTTON_PIN) == LOW)
+  if (digitalRead(BUTTON_PIN) == HIGH && ledState == false) {
     current = true;
-  else
+    ledState = true;
+    delay(750);
+     // save the current state to the 'digital' feed on adafruit io
+    Serial.print("sending button -> ");
+    Serial.println(current);
+    digital->save(current);
+
+    // store last button state
+    last = current;
+  }
+
+  if (digitalRead(BUTTON_PIN) == HIGH && ledState == true) {
     current = false;
-
-  // return if the value hasn't changed
-  if(current == last)
-    return;
-
-  // save the current state to the 'digital' feed on adafruit io
+    ledState = false;
+    delay(200);
+    // save the current state to the 'digital' feed on adafruit io
   Serial.print("sending button -> ");
   Serial.println(current);
   digital->save(current);
 
   // store last button state
   last = current;
-
+  }
 }
 ```
 What this code does is that it sets up a toggle system, which will come into play again later in this guide, when we talk about the receiver. 
